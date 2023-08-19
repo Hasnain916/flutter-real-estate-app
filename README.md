@@ -6,3 +6,6 @@ Welcome to the Real Estate Flutter App! This project is a mobile application dev
 - View property details, including images, description, price, and location.
 - Contact agents for inquiries.
 - User-friendly and intuitive interface.
+
+## Contact
+For any inquiries or feedback, feel free to contact me at hasnainawan1357@gmail.com.

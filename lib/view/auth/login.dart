@@ -43,7 +43,7 @@ class _LoginWithPhoneNumberState extends State<LoginWithPhoneNumber> {
               ),
               const Text(
                 "Phone Verification",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black87),
               ),
               const SizedBox(
                 height: 10,
@@ -52,6 +52,7 @@ class _LoginWithPhoneNumberState extends State<LoginWithPhoneNumber> {
                 "We need to register your phone before getting started!",
                 style: TextStyle(
                   fontSize: 16,
+                    color: Colors.black87
                 ),
                 textAlign: TextAlign.center,
               ),

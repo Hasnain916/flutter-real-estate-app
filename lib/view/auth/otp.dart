@@ -72,7 +72,7 @@ class _OTPState extends State<OTP> {
               ),
               const Text(
                 "Number Verification",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.black87),
               ),
               const SizedBox(
                 height: 10,
@@ -81,6 +81,7 @@ class _OTPState extends State<OTP> {
                 "Enter Your Verification code, we sent a verification code to your number ",
                 style: TextStyle(
                   fontSize: 16,
+                    color: Colors.black87
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -109,7 +110,7 @@ class _OTPState extends State<OTP> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>  BottomNavi()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>  const BottomNavi()));
 
                     },
                     child: const Text("Verify Phone Number", style: TextStyle(
@@ -120,13 +121,12 @@ class _OTPState extends State<OTP> {
               Row(
                 children: [
                   TextButton(
-
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginWithPhoneNumber()));
                       },
                       child: const Text(
                         "Edit Phone Number ?",
-                        style: TextStyle(color: Colors.green),
+                        style: TextStyle(color: Colors.black87),
                       ))
                 ],
               )

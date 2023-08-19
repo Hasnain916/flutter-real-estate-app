@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:home_rent/utils/color.dart';
 import 'package:home_rent/utils/explore_card.dart';
 import 'package:home_rent/utils/gap.dart';
@@ -143,7 +144,9 @@ class _HomePageState extends State<HomePage> {
                         border: Border.all(color: AppColors.Black)
                     ),
                     child: const Center(
-                      child: Icon(Icons.format_line_spacing_outlined,color: AppColors.textPrimary),
+                      child:
+                          FaIcon(FontAwesomeIcons.filter,
+                            size: 18.0, color: AppColors.primaryColor,)
                     ),
                   ),
                 ],

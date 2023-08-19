@@ -23,7 +23,7 @@ class RowTitleHome extends StatelessWidget {
           style: Theme.of(context).textTheme.headline1!.copyWith(
               fontWeight: FontWeight.w700,
               fontSize: 20,
-              color: AppColors.textPrimary),
+              color: Colors.black),
         ),
         InkWell(
           onTap: onPress,
@@ -32,7 +32,7 @@ class RowTitleHome extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline1!
-                .copyWith(color: const Color(0xff234F68), fontSize: 15),
+                .copyWith(color: AppColors.textPrimary, fontSize: 14),
           ),
         ),
       ],

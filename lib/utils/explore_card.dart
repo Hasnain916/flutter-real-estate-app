@@ -56,7 +56,7 @@ class ExploreCard extends StatelessWidget {
                       child: const Icon(
                         CupertinoIcons.heart,
                         size: 20,
-                        color: Colors.red,
+                        color: Colors.blue,
                       ),
                     ),
                   ),

@@ -76,7 +76,7 @@ class AppButton extends StatelessWidget {
                     title,
                     style: Theme.of(context)
                         .textTheme
-                        .headline2!
+                        .displayMedium!
                         .copyWith(
                         fontSize: 16, color: textColor),
                   ),
@@ -88,7 +88,7 @@ class AppButton extends StatelessWidget {
                     title,
                     style: Theme.of(context)
                         .textTheme
-                        .headline2!
+                        .displayMedium!
                         .copyWith(
                         fontSize: 16, color: textColor),
                   ),

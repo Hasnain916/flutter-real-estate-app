@@ -1,6 +1,12 @@
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:home_rent/utils/color.dart';
 import 'package:home_rent/view/accont.dart';
 import 'package:home_rent/view/home.dart';
+import 'package:home_rent/view/inbox.dart';
+import 'package:home_rent/view/saved.dart';
 
 class BottomNavi extends StatefulWidget {
   const BottomNavi({Key? key}) : super(key: key);
@@ -9,43 +15,76 @@ class BottomNavi extends StatefulWidget {
   State<BottomNavi> createState() => _BottomNaviState();
 }
 
+
 class _BottomNaviState extends State<BottomNavi> {
-  List pages= const[
-    HomePage(),
-    Profile(),
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
+  static const List<Widget> _widgetOptions = <Widget>[
+          HomePage(),
+          Saved(),
+          Inbox(),
+          Profile(),
   ];
 
-  int currentindex=0;
-  void onTap(int index){
-    setState(() {
-      currentindex= index;
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: pages[currentindex],
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
       bottomNavigationBar: Container(
-        decoration:  BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.black.withOpacity(0.2), width: 1.0))
-        ),
-        child: BottomNavigationBar(
-          unselectedFontSize: 0,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          onTap: onTap,
-          currentIndex: currentindex,
-          // selectedItemColor: Colors.teal,
-          unselectedItemColor: Colors.grey.withOpacity(0.5),
-          showSelectedLabels: true,
-          showUnselectedLabels: false,
-          elevation: 500,
-
-          items: const [
-            BottomNavigationBarItem(label: "Home",icon:Icon(Icons.home_outlined, size: 25,)),
-            BottomNavigationBarItem(label: "Account",icon:Icon(Icons.account_circle_outlined, size: 25)),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
           ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.blue[300]!,
+              hoverColor: Colors.blue[100]!,
+              gap: 8,
+              tabBorderRadius: 15,
+              activeColor:AppColors.primaryColor,
+              iconSize: 23,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.blue[100]!,
+              color: Colors.black45,
+              tabs: const [
+                GButton(
+                  icon: Icons.home_outlined,
+                  text: 'Home',
+                ),
+                 GButton(
+                  icon: FontAwesomeIcons.heart,
+                  text: 'Likes',
+                ),
+                GButton(
+
+                  text: 'Search',
+                  icon: FontAwesomeIcons.message,
+                ),
+                GButton(
+                  icon: FontAwesomeIcons.user,
+                  text: 'Profile',
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
+          ),
         ),
       ),
     );

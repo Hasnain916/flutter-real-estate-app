@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_rent/utils/color.dart';
+import 'package:home_rent/utils/explore_card.dart';
 import 'package:home_rent/utils/gap.dart';
-import 'package:home_rent/view/accont.dart';
-import 'package:home_rent/view/home/explore_card.dart';
-import 'package:home_rent/view/home/featured_card.dart';
-import 'package:home_rent/view/home/row_title_home.dart';
-import 'package:home_rent/view/home/top_location.dart';
+import 'package:home_rent/utils/row_title_home.dart';
+import 'package:home_rent/view/places.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,295 +27,286 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
     final width = MediaQuery.of(context).size.width * 1;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          elevation: 0.0,
-          toolbarHeight: 80,
-           //Home page APP BAR , SALAM and Profile Icon
-          title: Row(
-            children: [
-              Container(
-                width: 45,
-                height: 45,
-                decoration: BoxDecoration(
-                    color:  AppColors.Black,
-                    borderRadius: BorderRadius.circular(7),
-                    border: Border.all(color: AppColors.Black)
-                ),
-                child: const Center(
-                  child: Icon(Icons.line_weight_sharp, color: Colors.grey,),
-                ),
+    return Scaffold(
+      backgroundColor: AppColors.BColor,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 0.0,
+        toolbarHeight: 80,
+         //Home page APP BAR , SALAM and Profile Icon
+        title: Row(
+          children: [
+            Container(
+              width: 45,
+              height: 45,
+              decoration: BoxDecoration(
+                  color:  AppColors.Black,
+                  borderRadius: BorderRadius.circular(7),
+                  border: Border.all(color: AppColors.Black)
               ),
-              Gap(isWidth: true, isHeight: false, width: width * 0.03),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('Abbottabad ,kpk', style: TextStyle(
-                    fontWeight: FontWeight.bold,
+              child: const Center(
+                child: Icon(Icons.line_weight_sharp, color: Colors.grey,),
+              ),
+            ),
+            Gap(isWidth: true, isHeight: false, width: width * 0.03),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text('Abbottabad ,kpk', style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color:  AppColors.textPrimary,
+                  fontSize: 22,
+                ),),
+                Text('location',style: TextStyle(
                     color:  AppColors.textPrimary,
-                    fontSize: 22,
-                  ),),
-                  Text('location',style: TextStyle(
-                      color:  AppColors.textPrimary,
-                      fontSize: 15
+                    fontSize: 15
+                ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              width: 40,
+            ),
+            Row(
+              children: [
+                Container(
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color:  AppColors.Black,
+                      borderRadius: BorderRadius.circular(7),
+                      border: Border.all(color: AppColors.Black)
                   ),
+                  child: const Center(
+                    child: Icon(Icons.chat, color: Colors.grey,),
                   ),
-                ],
-              ),
-              const SizedBox(
-                width: 40,
-              ),
+                ),
+                Gap(isWidth: true, isHeight: false, width: width * 0.03),
+                Container(
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      color:  AppColors.Black,
+                      borderRadius: BorderRadius.circular(7),
+                      border: Border.all(color: AppColors.Black)
+                  ),
+                  child: const Center(
+                    child: Icon(Icons.notifications, color: Colors.grey,),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Row(
                 children: [
                   Container(
-                    width: 45,
-                    height: 45,
+                    width: 290,
+                    height: 60,
                     decoration: BoxDecoration(
-                      color:  AppColors.Black,
-                        borderRadius: BorderRadius.circular(7),
-                        border: Border.all(color: AppColors.Black)
+                        color: AppColors.whiteColor,
+                      borderRadius: BorderRadius.circular(10)
                     ),
-                    child: const Center(
-                      child: Icon(Icons.chat, color: Colors.grey,),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Icon(Icons.search, color: AppColors.textPrimary, size: 22,),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text('Search here', style: TextStyle(
+                          fontSize: 18,
+                          color: AppColors.textPrimary,
+                        ),)
+                      ],
                     ),
                   ),
                   Gap(isWidth: true, isHeight: false, width: width * 0.03),
                   Container(
-                    width: 45,
-                    height: 45,
+                    width: 60,
+                    height: 60,
                     decoration: BoxDecoration(
-                        color:  AppColors.Black,
-                        borderRadius: BorderRadius.circular(7),
+                        color:  AppColors.whiteColor,
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: AppColors.Black)
                     ),
                     child: const Center(
-                      child: Icon(Icons.notifications, color: Colors.grey,),
+                      child: Icon(Icons.format_line_spacing_outlined,color: AppColors.textPrimary),
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
-        ),
 
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+              Gap(isWidth: false, isHeight: true, height: height * 0.03),
+              SizedBox(
+                height: height / 20,
+                width: double.infinity,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
                   children: [
                     Container(
-                      width: 290,
-                      height: 60,
+                      height: 5,
+                      width: 100,
                       decoration: BoxDecoration(
-                        color: AppColors.Black,
-                        borderRadius: BorderRadius.circular(10)
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(5)
                       ),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
-                          SizedBox(
-                            width: 20,
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 5),
+                            child: Icon(Icons.supervisor_account_rounded, size: 25,  color: AppColors.textPrimary,),
                           ),
-                          Icon(Icons.search, color: Colors.grey, size: 22,),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text('Search here', style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey,
+                          Text('Family', style: TextStyle(
+                            fontSize: 16
                           ),)
                         ],
                       ),
                     ),
                     Gap(isWidth: true, isHeight: false, width: width * 0.03),
                     Container(
-                      width: 60,
-                      height: 60,
+                      height: 5,
+                      width: 120,
                       decoration: BoxDecoration(
-                          color:  AppColors.textPrimary,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: AppColors.Black)
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(5)
                       ),
-                      child: const Center(
-                        child: Icon(Icons.format_line_spacing_outlined, color: Colors.white,),
-                      ),
-                    ),
-                  ],
-                ),
-
-                Gap(isWidth: false, isHeight: true, height: height * 0.03),
-                SizedBox(
-                  height: height / 20,
-                  width: double.infinity,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Container(
-                        height: 5,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.Black),
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Row(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 5),
-                              child: Icon(Icons.supervisor_account_rounded, size: 25, color: Colors.grey,),
-                            ),
-                            Text('Family', style: TextStyle(
+                      child: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 5),
+                            child: Icon(Icons.person, size: 25,  color: AppColors.textPrimary),
+                          ),
+                          Text('Bachelor', style: TextStyle(
                               fontSize: 16
-                            ),)
-                          ],
-                        ),
+                          ),)
+                        ],
                       ),
-                      Gap(isWidth: true, isHeight: false, width: width * 0.03),
-                      Container(
-                        height: 5,
-                        width: 120,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.Black),
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Row(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 5),
-                              child: Icon(Icons.person, size: 25, color: Colors.grey,),
-                            ),
-                            Text('Bachelor', style: TextStyle(
-                                fontSize: 16
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Gap(isWidth: true, isHeight: false, width: width * 0.03),
-                      Container(
-                        height: 5,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.Black),
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Row(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 5),
-                              child: Icon(Icons.people_alt_sharp, size: 25, color: Colors.grey,),
-                            ),
-                            Text('Sublet', style: TextStyle(
-                                fontSize: 16
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Gap(isWidth: true, isHeight: false, width: width * 0.03),
-                      Container(
-                        height: 5,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.Black),
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Row(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 5),
-                              child: Icon(Icons.hotel, size: 25, color: Colors.grey,),
-                            ),
-                            Text('Hostel', style: TextStyle(
-                                fontSize: 16
-                            ),)
-                          ],
-                        ),
-                      ),
-                      Gap(isWidth: true, isHeight: false, width: width * 0.03),
-                      Container(
-                        height: 5,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.Black),
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        child: Row(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, right: 5),
-                              child: Icon(Icons.local_hotel, size: 25, color: Colors.grey,),
-                            ),
-                            Text('Hotel', style: TextStyle(
-                                fontSize: 16
-                            ),)
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                //Near by Estate Explore
-                Gap(isWidth: false, isHeight: true, height: height * 0.03),
-                RowTitleHome(
-                  title: "Exclusive Listings",
-                  subtitle: "view all",
-                  onPress: () {
-
-                  },
-                ),
-                Gap(isWidth: false, isHeight: true, height: height * 0.02),
-                Row(
-                  children: [
-                    // called Explored Card
-                    const ExploreCard(
-                      title: "Garden House",
-                      loc: "shinkiari",
-                      bed: " 2",
-                      isHeart: false,
-                      path:
-                      "assets/property.jpg",
                     ),
                     Gap(isWidth: true, isHeight: false, width: width * 0.03),
-                    const ExploreCard(
-                      title: "Ahmed",
-                      loc: "Mansehra",
-                      bed: " 6",
-                      isHeart: false,
-                      path:
-                      "assets/property2.jpg",
+                    Container(
+                      height: 5,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          border: Border.all(color: AppColors.Black, ),
+                          borderRadius: BorderRadius.circular(5)
+                      ),
+                      child: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 5),
+                            child: Icon(Icons.people_alt_sharp, size: 25, color: AppColors.textPrimary),
+                          ),
+                          Text('Sublet', style: TextStyle(
+                              fontSize: 16
+                          ),)
+                        ],
+                      ),
+                    ),
+                    Gap(isWidth: true, isHeight: false, width: width * 0.03),
+                    Container(
+                      height: 5,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(5)
+                      ),
+                      child: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 5),
+                            child: Icon(Icons.hotel, size: 25, color: AppColors.textPrimary),
+                          ),
+                          Text('Hostel', style: TextStyle(
+                              fontSize: 16
+                          ),)
+                        ],
+                      ),
+                    ),
+                    Gap(isWidth: true, isHeight: false, width: width * 0.03),
+                    Container(
+                      height: 5,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(5)
+                      ),
+                      child: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(left: 10, right: 5),
+                            child: Icon(Icons.local_hotel, size: 25,  color: AppColors.textPrimary),
+                          ),
+                          Text('Hotel', style: TextStyle(
+                              fontSize: 16
+                          ),)
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                Gap(isWidth: false, isHeight: true, height: height * 0.02),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 130,
-                    decoration: BoxDecoration(
-                      color: Colors.white10,
-                        borderRadius: BorderRadius.circular(10),
-                       image: const DecorationImage(
-                         image: AssetImage( 'assets/property2.jpg'),
-                         fit: BoxFit.fill
-                       )
-                    ),
-                ),
+              ),
 
-                RowTitleHome(
-                  title: "Popular",
-                  subtitle: "view all",
-                  onPress: () {
+              Gap(isWidth: false, isHeight: true, height: height * 0.03),
+              // Near By PLaces
+              RowTitleHome(
+                title: "Nearby Places",
+                subtitle: "view all",
+                onPress: () {
 
-                  },
-                ),
+                },
+              ),
+              Gap(isWidth: false, isHeight: true, height: height * 0.02),
+              const DestinationCarousel(),
 
-              ],
-            ),
+              //Near by Estate Explore
+              Gap(isWidth: false, isHeight: true, height: height * 0.03),
+              RowTitleHome(
+                title: "Popular",
+                subtitle: "view all",
+                onPress: () {
+
+                },
+              ),
+              Gap(isWidth: false, isHeight: true, height: height * 0.02),
+              Row(
+                children: [
+                  // called Explored Card
+                  const ExploreCard(
+                    title: "Garden House",
+                    loc: "Mansehra",
+                    bed: " 2",
+                    isHeart: false,
+                    path:
+                    "assets/property6.jpg",
+                  ),
+                  Gap(isWidth: true, isHeight: false, width: width * 0.03),
+                  const ExploreCard(
+                    title: "Ali House",
+                    loc: "Abbottabad",
+                    bed: " 6",
+                    isHeart: false,
+                    path:
+                    "assets/property10.jpeg",
+                  ),
+                ],
+              ),
+              Gap(isWidth: false, isHeight: true, height: height * 0.02),
+
+            ],
           ),
         ),
       ),

@@ -10,23 +10,19 @@ import 'package:home_rent/view/saved.dart';
 
 class BottomNavi extends StatefulWidget {
   const BottomNavi({Key? key}) : super(key: key);
-
   @override
   State<BottomNavi> createState() => _BottomNaviState();
 }
-
-
 class _BottomNaviState extends State<BottomNavi> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
   static const List<Widget> _widgetOptions = <Widget>[
-          HomePage(),
-          Saved(),
-          Inbox(),
-          Profile(),
+    HomePage(),
+    Saved(),
+    Inbox(),
+    Profile(),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

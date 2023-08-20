@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: AppColors.BColor,
       appBar: AppBar(
+        backgroundColor: AppColors.BColor,
         automaticallyImplyLeading: false,
         elevation: 0.0,
         toolbarHeight: 80,
@@ -41,12 +42,13 @@ class _HomePageState extends State<HomePage> {
               width: 45,
               height: 45,
               decoration: BoxDecoration(
-                  color:  AppColors.Black,
+                  color:  AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(7),
                   border: Border.all(color: AppColors.Black)
               ),
               child: const Center(
-                child: Icon(Icons.line_weight_sharp, color: Colors.grey,),
+                child: FaIcon(FontAwesomeIcons.navicon,
+                  size: 18.0,  color: Colors.grey,)
               ),
             ),
             Gap(isWidth: true, isHeight: false, width: width * 0.03),
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(
-              width: 40,
+              width: 30,
             ),
             Row(
               children: [
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                   width: 45,
                   height: 45,
                   decoration: BoxDecoration(
-                    color:  AppColors.Black,
+                    color:  AppColors.whiteColor,
                       borderRadius: BorderRadius.circular(7),
                       border: Border.all(color: AppColors.Black)
                   ),
@@ -88,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                   width: 45,
                   height: 45,
                   decoration: BoxDecoration(
-                      color:  AppColors.Black,
+                      color:  AppColors.whiteColor,
                       borderRadius: BorderRadius.circular(7),
                       border: Border.all(color: AppColors.Black)
                   ),
@@ -145,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: const Center(
                       child:
-                          FaIcon(FontAwesomeIcons.filter,
+                          FaIcon(FontAwesomeIcons.list,
                             size: 18.0, color: AppColors.primaryColor,)
                     ),
                   ),
@@ -170,7 +172,9 @@ class _HomePageState extends State<HomePage> {
                         children: const [
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 5),
-                            child: Icon(Icons.supervisor_account_rounded, size: 25,  color: AppColors.textPrimary,),
+                            child:
+                            FaIcon(FontAwesomeIcons.peopleRoof,
+                              size: 25,  color: AppColors.textPrimary,)
                           ),
                           Text('Family', style: TextStyle(
                             fontSize: 16
@@ -190,7 +194,8 @@ class _HomePageState extends State<HomePage> {
                         children: const [
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 5),
-                            child: Icon(Icons.person, size: 25,  color: AppColors.textPrimary),
+                            child:  FaIcon(FontAwesomeIcons.person,
+                              size: 25,  color: AppColors.textPrimary,)
                           ),
                           Text('Bachelor', style: TextStyle(
                               fontSize: 16
@@ -207,17 +212,19 @@ class _HomePageState extends State<HomePage> {
                           border: Border.all(color: AppColors.Black, ),
                           borderRadius: BorderRadius.circular(5)
                       ),
-                      child: Row(
+                      child:
+                      Row(
                         children: const [
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 5),
-                            child: Icon(Icons.people_alt_sharp, size: 25, color: AppColors.textPrimary),
+                            child: Icon(Icons.hotel, size: 25, color: AppColors.textPrimary),
                           ),
-                          Text('Sublet', style: TextStyle(
+                          Text('Hostel', style: TextStyle(
                               fontSize: 16
                           ),)
                         ],
                       ),
+
                     ),
                     Gap(isWidth: true, isHeight: false, width: width * 0.03),
                     Container(
@@ -230,10 +237,13 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         children: const [
                           Padding(
-                            padding: EdgeInsets.only(left: 10, right: 5),
-                            child: Icon(Icons.hotel, size: 25, color: AppColors.textPrimary),
+                              padding: EdgeInsets.only(left: 10, right: 5),
+                              child:
+                              FaIcon(FontAwesomeIcons.restroom,
+                                size: 25,  color: AppColors.textPrimary,)
+                            // Icon(Icons.people_alt_sharp, size: 25, color: AppColors.textPrimary),
                           ),
-                          Text('Hostel', style: TextStyle(
+                          Text('Sublet', style: TextStyle(
                               fontSize: 16
                           ),)
                         ],
